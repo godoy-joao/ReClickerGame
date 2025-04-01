@@ -11,6 +11,7 @@ import main.UtilityTool;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author João Guilherme
@@ -25,15 +26,13 @@ public class ComponentManager {
         }
     }
 
-    public static void addComponents() {
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage bi = uTool.getImage("/layout/heroShopOpen.png");
-        ShopTab st = new ShopTab(new ShopTab().getRectangle(), bi);
-        st.addToComponentManager("ShopTab");
-        System.out.println(st.getBounds());
+    public static void addComponent(Component component, String name) {
+        component.addToComponentManager(name);
     }
 
     public static void drawComponents(Graphics2D g) {
+        List<Component> componentList = (List<Component>) gameComponents.values();
+        componentList.s
         for (Component c : gameComponents.values()) {
             if (c.getSprite() != null) {
                 g.drawImage(c.getSprite(), c.x, c.y, c.width, c.height, null);
@@ -41,5 +40,10 @@ public class ComponentManager {
                 g.draw(c.getRectangle());
             }
         }
+    }
+
+    public static void addComponents() {
+        addComponent(new ShopTab(), "shop_tab");
+
     }
 }

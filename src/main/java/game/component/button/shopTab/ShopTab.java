@@ -13,12 +13,6 @@ public class ShopTab extends Component {
     private static final int HERO_SHOP_TAB = 0;
     private static final int ITEM_SHOP_TAB = 1;
 
-
-    public ShopTab(Rectangle rectangle, BufferedImage img) {
-        super(rectangle, img);
-        ToHeroTab heroTab = new ToHeroTab();
-    }
-
     public ShopTab() {
 
     }

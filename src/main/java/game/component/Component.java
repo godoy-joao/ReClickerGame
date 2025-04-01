@@ -7,25 +7,20 @@ package game.component;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 
 /**
- *
  * @author João Guilherme
  */
-public abstract class Component extends Rectangle{
-    
-    private boolean enabled;
-    private BufferedImage sprite;
-    private boolean isAttached;
-    private boolean AttachedTo;
+public abstract class Component extends Rectangle {
 
-    public Component(Rectangle r, BufferedImage img) {
-    this.x = r.x;
-    this.y = r.y;
-    this.height = r.height;
-    this.width = r.width;
-    this.sprite = img;
-    }
+    private boolean enabled;
+    private boolean visible;
+    private BufferedImage sprite;
+    private boolean hasChild;
+    private HashMap<String, Component> children;
+    private int drawLayer;
+
 
     public Component() {
 
@@ -46,21 +41,49 @@ public abstract class Component extends Rectangle{
     public void addToComponentManager(String name) {
         ComponentManager.gameComponents.put(name, this);
     }
-    
+
+    public boolean hasChild() {
+        return hasChild;
+    }
+
+    public int getDrawLayer() {
+        return drawLayer;
+    }
+
+    public Component findChild(String name) {
+        return children.get(name);
+    }
+
+    public void setVisible(boolean value) {
+        visible = value;
+    }
+
+    public void toggleVisibility() {
+        visible = !visible;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
     public void enable() {
         this.enabled = true;
     }
-    
+
     public void disable() {
         this.enabled = false;
     }
-    
+
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public void addChildren(String name, Component child) {
+        children.put(name, child);
     }
 
     public abstract void onClick();
 
     public abstract Rectangle getRectangle();
-   
+
 }

@@ -1,7 +1,6 @@
 package game.component.button.shopTab;
 
 import game.component.Component;
-import main.Display;
 
 import java.awt.*;
 
