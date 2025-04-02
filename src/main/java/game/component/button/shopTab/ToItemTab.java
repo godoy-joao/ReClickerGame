@@ -1,17 +1,19 @@
 package game.component.button.shopTab;
 
 import game.component.Component;
+import main.Display;
 
 import java.awt.*;
 
 public class ToItemTab extends Component {
-    @Override
-    public void onClick() {
-        ShopTab.switchToItemTab();
+
+    public ToItemTab() {
+        setRect(Display.WIDTH - 300, 0, 100, 200);
     }
 
     @Override
-    public Rectangle getRectangle() {
-        return new Rectangle(Display.WIDTH - 300, 0, 100, 200);
+    public void onClick() {
+        ShopTab.switchTab(ShopTab.ITEM_SHOP_TAB);
     }
+
 }

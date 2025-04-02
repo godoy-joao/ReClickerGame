@@ -5,6 +5,8 @@
  */
 package game.component;
 
+import main.UtilityTool;
+
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
@@ -20,13 +22,9 @@ public abstract class Component extends Rectangle {
     private boolean hasChild;
     private HashMap<String, Component> children;
     private int drawLayer;
-
+   public UtilityTool tool = new UtilityTool();
 
     public Component() {
-
-    }
-
-    public Component(Component c) {
 
     }
 
@@ -48,6 +46,10 @@ public abstract class Component extends Rectangle {
 
     public int getDrawLayer() {
         return drawLayer;
+    }
+
+    public void setDrawLayer(int layer){
+        drawLayer = layer;
     }
 
     public Component findChild(String name) {
@@ -83,7 +85,5 @@ public abstract class Component extends Rectangle {
     }
 
     public abstract void onClick();
-
-    public abstract Rectangle getRectangle();
 
 }

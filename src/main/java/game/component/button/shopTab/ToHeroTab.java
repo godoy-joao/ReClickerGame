@@ -1,19 +1,19 @@
 package game.component.button.shopTab;
 
 import game.component.Component;
+import main.Display;
 
 import java.awt.*;
 
 public class ToHeroTab extends Component {
 
+    public ToHeroTab() {
+        setRect(Display.WIDTH - 400, 0, 100, 200);
+    }
 
     @Override
     public void onClick() {
-        ShopTab.switchToHeroTab();
+        ShopTab.switchTab(ShopTab.HERO_SHOP_TAB);
     }
 
-    @Override
-    public Rectangle getRectangle() {
-        return new Rectangle(Display.WIDTH - 400, 0, 100, 200);
-    }
 }

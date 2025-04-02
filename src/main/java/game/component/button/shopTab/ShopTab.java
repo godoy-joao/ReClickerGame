@@ -10,29 +10,20 @@ import java.awt.image.BufferedImage;
 public class ShopTab extends Component {
 
     private static int status = 0;
-    private static final int HERO_SHOP_TAB = 0;
-    private static final int ITEM_SHOP_TAB = 1;
+    public static final int HERO_SHOP_TAB = 0;
+    public static final int ITEM_SHOP_TAB = 1;
 
     public ShopTab() {
-
+        setRect(Display.WIDTH - 400, 0, 400, Display.HEIGHT);
+setSprite(tool.getImage("layout/heroShopOpen.png"));
     }
 
-    public static void switchToHeroTab() {
-        status = HERO_SHOP_TAB;
-
+    public static void switchTab(int tab) {
+        status = tab;
     }
-
-    public static void switchToItemTab() {
-        status = ITEM_SHOP_TAB;
-    }
-
 
     @Override
     public void onClick() {
     }
 
-    @Override
-    public Rectangle getRectangle() {
-        return new Rectangle(Display.WIDTH - 400, 0, 400, Display.HEIGHT);
-    }
 }

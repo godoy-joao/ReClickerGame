@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8eaf80e-4cb0-476e-a29c-f2f013da3fcf" name="Changes" comment="" />
+    <list default="true" id="e8eaf80e-4cb0-476e-a29c-f2f013da3fcf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Boss.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/BuyableEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/RandomBuff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/enemy/images/cranio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/enemy/images/fantasma.old.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/enemy/images/fantasma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/enemy/images/geléia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/enemy/images/minhoca.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data/enemy/images/morto-vivo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layout/heroShopOpen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layout/notification.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layout/skillShopOpen.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/component/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/component/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/component/button/DefaultMinimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/component/button/DefaultMinimizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/BuyTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/ShopTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/ShopTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/ToHeroTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/ToHeroTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/ToItemTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/component/button/shopTab/ToItemTab.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +44,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -36,17 +67,23 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2v6Gh6AMPxxJL1sfCQhHQZtyfIz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "component",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Aluno/Documents/ReClickerGame/src/main/java/main",
+    "last_opened_file_path": "C:/Users/Aluno/Documents/ReClickerGame",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
