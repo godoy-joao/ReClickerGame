@@ -13,7 +13,7 @@ public class ToItemTab extends Component {
 
     @Override
     public void onClick() {
-        ShopTab.switchTab(ShopTab.ITEM_SHOP_TAB);
+        ShopTab.switchTo(ShopTab.ITEM_SHOP_TAB);
     }
 
 }

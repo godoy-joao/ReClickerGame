@@ -15,10 +15,13 @@ public class ShopTab extends Component {
 
     public ShopTab() {
         setRect(Display.WIDTH - 400, 0, 400, Display.HEIGHT);
-setSprite(tool.getImage("layout/heroShopOpen.png"));
+        setSprite(tool.getImage("/layout/heroShopOpen.png"));
+        addChildren("to_hero_tab", new ToHeroTab());
+        addChildren("to_item_tab", new ToItemTab());
+        hasChild();
     }
 
-    public static void switchTab(int tab) {
+    public static void switchTo(int tab) {
         status = tab;
     }
 
@@ -26,4 +29,7 @@ setSprite(tool.getImage("layout/heroShopOpen.png"));
     public void onClick() {
     }
 
+    public static int getStatus() {
+        return status;
+    }
 }

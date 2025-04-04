@@ -13,7 +13,8 @@ public class ToHeroTab extends Component {
 
     @Override
     public void onClick() {
-        ShopTab.switchTab(ShopTab.HERO_SHOP_TAB);
+        ShopTab.switchTo(ShopTab.HERO_SHOP_TAB);
+        System.out.println(ShopTab.getStatus());
     }
 
 }

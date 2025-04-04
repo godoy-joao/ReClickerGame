@@ -9,6 +9,7 @@ public class DefaultMinimizer extends Component {
     private final Component component;
     private boolean minimized;
 
+
     public DefaultMinimizer(Component component) {
     this.component = component;
     this.minimized = false;

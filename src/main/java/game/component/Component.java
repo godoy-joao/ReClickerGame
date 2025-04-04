@@ -5,27 +5,39 @@
  */
 package game.component;
 
+import controls.InputHandler;
+import game.component.button.DefaultMinimizer;
 import main.UtilityTool;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author João Guilherme
  */
 public abstract class Component extends Rectangle {
 
-    private boolean enabled;
-    private boolean visible;
-    private BufferedImage sprite;
+    private boolean enabled = true;
+    private boolean visible = true;
+    private BufferedImage sprite = null;
     private boolean hasChild;
-    private HashMap<String, Component> children;
-    private int drawLayer;
+    private HashMap<String, Component> children = new HashMap<>();
+    private int drawLayer = 0;
    public UtilityTool tool = new UtilityTool();
+   private DefaultMinimizer minimizer;
 
     public Component() {
 
+    }
+
+    public DefaultMinimizer getMinimizer() {
+        return minimizer;
+    }
+
+    public void setMinimizer(DefaultMinimizer defaultMinimizer) {
+        this.minimizer = defaultMinimizer;
     }
 
     public BufferedImage getSprite() {
@@ -41,6 +53,7 @@ public abstract class Component extends Rectangle {
     }
 
     public boolean hasChild() {
+        hasChild = !children.isEmpty();
         return hasChild;
     }
 
@@ -54,6 +67,10 @@ public abstract class Component extends Rectangle {
 
     public Component findChild(String name) {
         return children.get(name);
+    }
+
+    public HashMap<String, Component> getChildren() {
+        return children;
     }
 
     public void setVisible(boolean value) {
@@ -86,4 +103,17 @@ public abstract class Component extends Rectangle {
 
     public abstract void onClick();
 
+    public void childClicked() {
+        int highestLayer = 0;
+        for (Component c : children.values()) {
+            if (c.getDrawLayer() > highestLayer && c.contains(InputHandler.mousePosition))
+                highestLayer = c.getDrawLayer();
+        }
+
+        for (Component c : children.values()) {
+            if (c.getDrawLayer() == highestLayer) {
+                c.onClick();
+            }
+        }
+    }
 }

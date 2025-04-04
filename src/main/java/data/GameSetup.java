@@ -26,6 +26,7 @@ public class GameSetup {
         try {
             System.out.println("Run");
             ComponentManager.addComponents();
+            ComponentManager.sort();
             FileManager.initialize();
             GameData.loadData();
             setup = true;

@@ -10,6 +10,8 @@ import main.UtilityTool;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,26 +21,34 @@ import java.util.List;
 public class ComponentManager {
 
     public static HashMap<String, Component> gameComponents = new HashMap<>();
+    private static List<Component> sortedComponents;
 
     public static void checkIfComponentWasClicked(Point mousePos) {
         for (Component c : gameComponents.values()) {
-            if (c.contains(mousePos)) c.onClick();
+            if (c.hasChild()) {
+                c.childClicked();
+            } else if (c.contains(mousePos)) c.onClick();
         }
     }
+
+    /*public static List<Component> getComponentByDrawOrder() {
+        return sortedComponents.reversed();
+    }
+    */
+
 
     public static void addComponent(Component component, String name) {
         component.addToComponentManager(name);
     }
 
     public static void drawComponents(Graphics2D g) {
-        List<Component> componentList = (List<Component>) gameComponents.values();
-        componentList.s
-        for (Component c : gameComponents.values()) {
+        for (Component c : sortedComponents) {
             if (c.getSprite() != null) {
-                g.drawImage(c.getSprite(), c.x, c.y, c.width, c.height, null);
+                g.drawImage(c.getSprite(), (int) c.getX(), (int) c.getY(), (int) c.getWidth(), (int) c.getHeight(), null);
             } else {
-                g.draw(c.getRectangle());
+                g.draw(c);
             }
+           //Implementar lógica para desenhar filhos
         }
     }
 
@@ -46,4 +56,14 @@ public class ComponentManager {
         addComponent(new ShopTab(), "shop_tab");
 
     }
+
+    public static void sort() {
+        sortedComponents = new ArrayList<>();
+        gameComponents.forEach((s, component) -> {
+            sortedComponents.add(component);
+        });
+        sortedComponents.sort(Comparator.comparingInt(Component::getDrawLayer));
+    }
+
+
 }
