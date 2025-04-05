@@ -37,12 +37,18 @@ public class Display extends JPanel implements Runnable {
     public static int fps;
     public static int notificationTick;
 
+    public static Font varelaRound;
     private boolean running = false;
     private Thread thread;
     private final InputHandler inputHandler;
     private final Game game;
 
     public Display() {
+        try {
+            varelaRound = Font.createFont(Font.TRUETYPE_FONT, new File("/font/Varela_Round/VarelaRound-Regular.ttf"));
+        } catch (Exception e) {
+
+        }
         inputHandler = new InputHandler();
         game = new Game();
         setSize(WIDTH, HEIGHT);
@@ -64,7 +70,7 @@ public class Display extends JPanel implements Runnable {
     }
 
     public void update() {
-        game.tick(inputHandler.key, inputHandler.mouse);
+        game.tick(InputHandler.key, InputHandler.mouse);
     }
 
     @Override
@@ -74,14 +80,13 @@ public class Display extends JPanel implements Runnable {
         long lastUpdate = System.nanoTime();
         long pastTime = System.nanoTime();
         int frames = 0;
-        int count = 0;
         int remainingSeconds = 60;
         do {
             long curTime = System.nanoTime();
             if (curTime - pastUpdateTime >= 1e8 / 6) {
                 update();
                 pastUpdateTime = System.nanoTime();
-                count++;
+
             }
             if (curTime - pastTime >= 1e8 / 12) {
                 repaint();
@@ -92,7 +97,7 @@ public class Display extends JPanel implements Runnable {
                 lastUpdate = System.nanoTime();
                 fps = frames;
                 frames = 0;
-                count = 0;
+
                 remainingSeconds--;
                 GameData.tickSeconds();
                 notificationTick--;
@@ -110,13 +115,14 @@ public class Display extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(new Color(10, 60, 60));
-        g2.fillRect(0, 0, WIDTH, HEIGHT);
+
+        g2.drawImage(new UtilityTool().getImage("/layout/background.png"), 0 ,0, WIDTH, HEIGHT, null);
         g2.setColor(Color.red);
         try {
             ComponentManager.drawComponents(g2);
-            g2.setFont(new Font("Arial", Font.PLAIN, 30));
+            g2.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 5));
             g2.drawString(Integer.toString(fps), 30, 50);
+            g2.setFont(new Font("Winky Sans", Font.BOLD, 30));
             g2.drawString(Controller.currentEnemy.getName(), (int) Controller.currentEnemy.getX() + 10, (int) Controller.currentEnemy.getY() - 30);
             g2.drawString(Integer.toString(GameData.getLevel()), (int) Controller.currentEnemy.getX() - 20, (int) Controller.currentEnemy.getY() - 30);
             g2.drawString(Double.toString(Controller.currentEnemy.getHp()), (int) Controller.currentEnemy.getX() + 10, (int) Controller.currentEnemy.getY() - 50);

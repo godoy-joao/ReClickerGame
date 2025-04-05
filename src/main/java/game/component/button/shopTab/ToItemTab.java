@@ -8,7 +8,7 @@ import java.awt.*;
 public class ToItemTab extends Component {
 
     public ToItemTab() {
-        setRect(Display.WIDTH - 300, 0, 100, 200);
+        setRect(Display.WIDTH - 300, 0, 100, 50);
     }
 
     @Override

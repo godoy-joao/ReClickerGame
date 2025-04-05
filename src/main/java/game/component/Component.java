@@ -24,6 +24,7 @@ public abstract class Component extends Rectangle {
     private BufferedImage sprite = null;
     private boolean hasChild;
     private HashMap<String, Component> children = new HashMap<>();
+    private Component parent;
     private int drawLayer = 0;
    public UtilityTool tool = new UtilityTool();
    private DefaultMinimizer minimizer;
@@ -50,6 +51,14 @@ public abstract class Component extends Rectangle {
 
     public void addToComponentManager(String name) {
         ComponentManager.gameComponents.put(name, this);
+    }
+
+    public void setParent(Component c) {
+        this.parent = c;
+    }
+
+    public Component getParent() {
+        return this.parent;
     }
 
     public boolean hasChild() {
@@ -111,7 +120,7 @@ public abstract class Component extends Rectangle {
         }
 
         for (Component c : children.values()) {
-            if (c.getDrawLayer() == highestLayer) {
+            if (c.getDrawLayer() == highestLayer && c.contains(InputHandler.mousePosition)) {
                 c.onClick();
             }
         }

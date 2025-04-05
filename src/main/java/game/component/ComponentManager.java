@@ -48,7 +48,15 @@ public class ComponentManager {
             } else {
                 g.draw(c);
             }
-           //Implementar lógica para desenhar filhos
+           if (c.hasChild()) {
+               for ( Component child : c.getChildren().values()) {
+                   if (child.getSprite() != null) {
+                       g.drawImage(child.getSprite(), (int) child.getX(), (int) child.getY(), (int) child.getWidth(), (int) child.getHeight(), null);
+                   } else {
+                      // g.draw(child);
+                   }
+               }
+           }
         }
     }
 

@@ -8,13 +8,12 @@ import java.awt.*;
 public class ToHeroTab extends Component {
 
     public ToHeroTab() {
-        setRect(Display.WIDTH - 400, 0, 100, 200);
+        setRect(Display.WIDTH - 400, 0, 100, 50);
     }
 
     @Override
     public void onClick() {
         ShopTab.switchTo(ShopTab.HERO_SHOP_TAB);
-        System.out.println(ShopTab.getStatus());
     }
 
 }
